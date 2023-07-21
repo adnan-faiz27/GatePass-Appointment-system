@@ -1,0 +1,88 @@
+{% extends 'index1.html' %}
+{% block content %}
+<style>
+    .main{
+        width:100%;
+        display: flex;
+        justify-content: center;
+        padding-top:2rem;
+    }
+    .heading{
+        width:100%;
+        text-align:center;
+        padding-top:2rem;
+        padding-bottom:2rem;
+    }
+    #form{
+        padding: 1rem;
+        width: 20rem;
+        background-color: #04AA6D;
+        height: auto;
+        border-radius: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+    }
+    form p,input{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding:0.15rem;
+        border-radius:0.35rem;
+    }
+    .submit{
+        width:100%;
+        font-size:1.3rem;
+        background-color:#04AA6D;
+        text-align:center;
+        color:white;
+        border:none;
+        padding:0.5rem;
+        border-radius:0.3rem;
+        cursor:pointer;
+        margin:0;
+    }
+    .submit:hover{
+        background-color:#02774C;
+        transition:0.3s;
+        
+    }
+</style>
+<body>
+    <div class= "heading" >
+        <h1> USER FORM </h1>
+    </div>
+    <hr>
+    <div class="main" >
+        {% if page == 'login' %}
+            <div id = "form">
+                <form action="" method="post">
+                    {% csrf_token %} 
+                    <label >Username:</label>
+                    <input type="text " name="username" placeholder="Enter Username">
+
+                    <label >Password:</label>
+                    <input type="password" name="password" placeholder="Enter Password">
+
+                    <input class="submit" type="submit" value="login">
+                </form>
+
+                <p >Havent signed up yet</p>
+                <a href="{% url 'register' %}">Sign up</a>
+            </div>
+
+            {% else %}
+
+            <div id = "form">
+                <form action="" method="post">
+                    {% csrf_token %} 
+                    {{form.as_p}}
+                    <input class="submit" type="submit" value="Register">
+                </form>
+                <p >Already signed up </p>
+                <a  href="{% url 'login' %}">Login</a>
+            </div>
+            
+        {% endif %}
+    </div>
+</body>
+{% endblock content %}

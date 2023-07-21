@@ -1,0 +1,46 @@
+{% extends 'index1.html' %}
+{% block content %}
+<style>
+    .main{
+        width:100%;
+        display: flex;
+        justify-content: center;
+        padding-top:5rem;
+    }
+    .form{
+        width: 23rem;
+        background-color: #aa3904;
+        color: white;
+        padding: 1rem;
+        border-radius: 0.5rem;
+    }
+    p{
+        font-size:1.2rem;
+    }
+    .back{
+        text-decoration: none;
+        color: rgb(69, 36, 36);
+        display: block;
+    }
+    
+    .submit{
+        border-radius: 0.2rem;
+        border: none;
+        color: rgb(6, 6, 6);
+        padding: 0.2rem;
+    }
+</style>
+<body>
+    <div class="main" >
+        <form action="" method="post" class = "form">
+            {% csrf_token %}
+            <p class = "para" >Are you sure you want to delete "{{obj}}" </p>
+            <a href="{{request.META.HTTP_REFERER}}" class= "back" >Go back</a>
+            </br>
+            <input type="submit" value="Confirm" class= "submit">
+        </form>
+    </div>
+
+
+</body>
+{% endblock content %}

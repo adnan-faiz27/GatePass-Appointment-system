@@ -1,0 +1,95 @@
+{% extends 'index1.html' %}
+{% comment %} <!DOCTYPE html> {% endcomment %}
+{% comment %} {% load static %}  {% endcomment %}
+{% comment %} <html lang="en"> {% endcomment %}
+{% comment %} <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/view.css' %}" />
+    <title>Document</title>
+</head> {% endcomment %}
+
+{% block content %}
+<style>
+    *{
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3{
+        width: 93%;
+        text-align: center;
+        display: inline-block;
+        padding: 1rem;
+        font-size: 3rem;
+        margin: 0.5rem;
+        font-weight: 200;
+    }
+    
+
+
+    .container0{
+        display: inline-block;
+        width: 19rem;
+        font-size: 1rem;
+        background-color: cadetblue;
+        color: white;
+        border-radius: 0.3rem;
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    .employeelink{
+        color: rgb(255, 213, 213);
+    }
+
+    .components{
+
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
+    .search{
+        margin: 1rem;
+    }
+
+    .searchbox{
+        padding:0.3rem;
+        border-radius:0.2rem;
+        margin-right:1rem;
+    }
+
+
+</style>
+<body>
+    <h3>Guests</h3>
+    <hr>
+    <form class="search" method = 'get' action = {% url 'view-guest' %}>
+        <label>
+            <title>search</title>
+
+          <input class="searchbox" name ="g" placeholder="Search for guest..." />
+        </label>
+    </form>
+    {% for guest in guests %}
+    <div class="container0">
+        <div class="components">
+            {{guest.firstName}}  {{guest.lastName}} || {{guest.created|timesince}}
+            <a style="float: right;" href="{% url 'updateGuest' guest.id %}" class="employeelink">
+                edit
+            </a>
+        </div>
+        <div class="components">
+            {{guest.mobileNo}} || {{guest.email}}
+        </div>
+        <div class="components">
+            <a style="float: right;" href="{% url 'deleteGuest' guest.id %}" class="employeelink">
+                delete
+            </a>
+        </div>
+
+    </div>
+    {% endfor %}
+</body>
+{% comment %} </html> {% endcomment %}
+{% endblock content %}

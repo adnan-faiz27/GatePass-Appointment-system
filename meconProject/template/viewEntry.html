@@ -1,0 +1,115 @@
+{% extends 'index1.html' %}
+{% block content %}
+<style>
+    *{
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    h3{
+        width: 93%;
+        text-align: center;
+        display: inline-block;
+        padding: 1rem;
+        font-size: 3rem;
+        margin: 0.5rem;
+        font-weight: 200;
+    }
+    
+
+
+    .container0{
+        display: inline-block;
+        width: 19rem;
+        font-size: 1rem;
+        background-color: cadetblue;
+        color: white;
+        border-radius: 0.3rem;
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    .employeelink{
+        color: rgb(255, 213, 213);
+    }
+
+    .components{
+
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
+    .search{
+        margin: 1rem;
+    }
+    .searchbox{
+        padding:0.3rem;
+        border-radius:0.2rem;
+        margin-right:1rem;
+    }
+    .date{
+        padding:0.3rem;
+        border-radius:0.2rem;
+        margin-right:1rem;
+    }
+    .submit{
+        padding:0.3rem;
+        border-radius:0.2rem;
+        width:4.5rem;
+        cursor:pointer;
+        
+    }
+    .submit:hover{
+        background-color:grey;
+        transition:0.3s
+    }
+</style>
+
+<body>
+    <h3>Entries</h3>
+    <hr>
+    <form class="search" method = 'get' action = {% url 'view-entry' %}>
+        <label>
+            <title>search</title>
+
+            <input  class="searchbox"  name ="ent" placeholder="Search for entry..." />
+            <input class="date" name ="date" type="date" />
+            <label style="margin-right: .5rem;">
+                Not CheckOut
+            </label>
+            <input style="margin-right: 1.5rem;" name ="checked" type="checkbox" />
+            <input class="submit" type="submit" value="Submit">
+        </label>
+    </form>
+    {% for entry in entries %}
+    <div class="container0">
+        <div class="components">
+            <a href="{% url 'view-guest'%}" class="employeelink">
+                {{entry.guestEntry}}
+            </a>
+        </div>
+        <div class="components">
+            {{entry.date}}
+        </div>
+        <div class="components">
+            {{entry.department}}
+        </div>
+        <div class="components">
+            Purpose - {{entry.purpose}}
+        </div>
+        {%if entry.checkOut == None %}
+        <div class="components">
+            <a style=" background-color: red; padding:0.3rem; border-radius:0.3rem" href="{% url 'viewEntryChecked' entry.id %}" class="employeelink">
+                CheckOut
+            </a>
+        </div>
+        {% else %}
+        <div class="components">
+            CheckOut - {{entry.checkOut}}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</body>
+{% comment %} </html> {% endcomment %}
+{% endblock content %}

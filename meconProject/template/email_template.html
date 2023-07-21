@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'style/email.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="emailForm">
+
+        <p>
+            Appointment has been {{obj1}} with/on 
+
+            <li>{{obj}} - {{name}}</li> 
+            <li>Mobile No - {{number}}</li>
+            <li>Date - {{date}}</li>
+            <li>Time - {{time}}</li>
+
+        </p>
+
+    </div>
+  </body>
+</html>

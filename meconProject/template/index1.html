@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style\index1.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="child0 child" >
+            {{request.user.username}}
+        </div>
+        <div class="child1 child" >
+            GATE PASS / ENTRY SYSTEM
+        </div>
+        <div class="child2 child" >
+            {% if request.user.is_authenticated %}
+                <a href ='{% url 'logout' %}'>
+                    LOGOUT 
+                </a>
+            {% else %}
+                <a href ='{% url 'login' %}'>
+                    LOGIN 
+                </a>
+            {% endif %} 
+        </div>
+    </div>
+    <div class="container">
+        <div class="left" >
+            <div class="left-child view">
+                <a  href =''>
+                    VIEW 
+                </a>
+            </div>
+            <div class="left-child">
+                <a href ='{% url 'view-employee' %}'>
+                    EMPLOYEE 
+                </a>
+            </div>
+            <div class="left-child">
+                <a href ='{% url 'view-guest' %}'>
+                    GUEST 
+                </a>
+            </div>
+            <div class="left-child">
+                <a href ='{% url 'view-entry' %}'>
+                    ENTRY 
+                </a>
+            </div>
+            <div class="left-child">
+                <a href ='{% url 'view-app' %}'>
+                    APPOINTMENT 
+                </a>
+            </div>
+            <div  class="left-child">
+                <a href ='{% url 'view-dep' %}'>
+                    DEPARTMENT 
+                </a>
+            </div>
+        </div>
+
+        <div class="middle" >
+            {% block content %}
+
+
+            {% endblock %}
+        </div>
+        <div class="right" >
+            <div  class="right-child create">
+                <a  href ="">
+                    CREATE 
+                </a>
+            </div>
+            <div class="right-child">
+                <a href ='{% url 'create-employee' %}'>
+                    EMPLOYEE 
+                </a>
+            </div>
+            <div class="right-child">
+                <a href ='{% url 'create-guest' %}'>
+                    GUEST 
+                </a>
+            </div>
+            <div class="right-child">
+                <a href ='{% url 'create-entry' %}'>
+                    ENTRY 
+                </a>
+            </div>
+            <div class="right-child">
+                <a href ='{% url 'create-app' %}'>
+                    APPOINTMENT 
+                </a>
+            </div>
+            <div class="right-child">
+                <a href ='{% url 'create-department' %}'>
+                    DEPARTMENT 
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

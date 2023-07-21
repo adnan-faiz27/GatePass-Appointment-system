@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    
+  </style>
+
+</head>
+
+<body >
+  <div id="emailForm">
+    <h1 style="width: 100%; text-align: center; justify-content: center; ">MECON LIMITED</h1>
+    <h3 style="width: 100%; text-align: center; justify-content: center; ">GATE PASS</h3>
+    <hr>
+    <div>
+      <span style="width: 5rem; margin: 0.3rem; padding: 0.1rem; font-size: 0.8rem;" >Name - {{guestName}}</span>
+      <span style="width: 5rem; margin: 0.3rem; padding: 0.1rem; font-size: 0.8rem;" >Mobile No - {{guestNumber}}</span>
+    </div>
+
+    <p style="width: 100%; text-align: center; justify-content: center; font-size: 1.6rem;  ">
+      Appointment with/on
+    <div style="width: 100%;justify-content: center; " >
+      <table style="font-size: 1.1rem; border:1px solid black; width: 19rem;  " >
+        <tr>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem; "  >{{obj}}</td>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem;  "  >{{empName}}</td>
+        </tr>
+        <tr>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem;  "  >Mobile No</td>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem;  "  >{{empNumber}}</td>
+        </tr>
+        <tr>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem;  "  >Date</td>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem;  "  >{{date}}</td>
+        </tr>
+        <tr>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem; "  >Time</td>
+          <td style="font-size: 1.1rem; border:1px solid black; padding: 0.2rem; "  >{{time}}</td>
+        </tr>
+      </table>
+    </div>
+
+    </p>
+    <h3>Valid Till - {{valid}}</h3>
+  </div>
+</body>
+
+</html>

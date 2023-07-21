@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style\index.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% if request.user.is_authenticated %}
+        {% comment %} <p id="user">{{request.user.username}}<span>@{{request.user.username}}</span></p> {% endcomment %}
+        <div class ="navbar">
+            <div class = "dropdown">
+                
+                <button class="dropbtn">
+                    <a href = '{% url 'logout' %}'>
+                        Logout
+                    </a>
+                </button>
+                
+            </div>
+            <div class = "dropdown">
+            
+                <button class="dropbtn">CREATE</button>
+                <div class="dropdown-content">
+                
+                    <a href = '{% url 'create-employee' %}'>
+                        Employee
+                    </a>
+                    <a href = '{% url 'create-department' %}'>
+                        Department
+                    </a>
+                    <a href = '{% url 'create-guest' %}'>
+                        Guest 
+                    </a>
+                    <a href = '{% url 'create-app' %}'>
+                        App
+                    </a>
+                    <a href = '{% url 'create-entry' %}'>
+                        Entry
+                    </a>
+                </div>
+            </div>
+            <div class = "dropdown">
+                
+                <button class="dropbtn">VIEW</button>
+                <div class="dropdown-content  ">
+                
+                    <a href = '{% url 'view-employee' %}'>
+                        Employee
+                    </a>
+                    <a href = '{% url 'view-app' %}'>
+                        Appointments
+                    </a>
+                    <a href = '{% url 'view-dep' %}'>
+                        Departments
+                    </a>
+                    <a href = '{% url 'view-guest' %}'>
+                        Guests
+                    </a>
+                    <a href = '{% url 'view-entry' %}'>
+                        Entries
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    {% else %}
+    <div class ="navbar">
+        <div class = "dropdown secondDropdown">
+            <button class="dropbtn">LOGIN</button>
+            <div class="dropdown-content">
+                <a href = '{% url 'login' %}'>
+                    Login 
+                </a>
+                <a href = '{% url 'register' %}'>
+                    register 
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    {% endif %} 
+    <br>
+    <br>
+</body>
+</html>
