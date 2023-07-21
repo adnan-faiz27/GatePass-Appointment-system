@@ -1,0 +1,19 @@
+.form{
+    width: 20rem;
+    background-color: #aa3904;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+.back{
+    text-decoration: none;
+    color: rgb(69, 36, 36);
+    display: block;
+}
+
+.submit{
+    border-radius: 0.2rem;
+    border: none;
+    color: rgb(6, 6, 6);
+    padding: 0.2rem;
+}
